@@ -1,0 +1,45 @@
+# syntax=docker/dockerfile:1.3
+FROM ubuntu:focal
+LABEL maintainer="Gymnasium Developers <dev@gymnasium.org>"
+LABEL description="Dockerised Gymnasium"
+
+ARG USER_ID
+ARG GROUP_ID
+ARG TAG
+
+ENV HOME /home/gymnasium
+
+# add user with specified (or default) user/group ids
+ENV USER_ID ${USER_ID:-1000}
+ENV GROUP_ID ${GROUP_ID:-1000}
+RUN groupadd -g ${GROUP_ID} gymnasium && \
+    useradd -u ${USER_ID} -g gymnasium -s /bin/bash -m -d /home/gymnasium gymnasium  && \
+    mkdir /home/gymnasium/.gymnasium && \
+    chown ${USER_ID}:${GROUP_ID} -R /home/gymnasium
+
+RUN apt-get update && \
+    apt-get -y install --no-install-recommends \
+    wget \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY gymnasium-binaries/${TAG}/gymnasium* /home/gymnasium
+
+RUN mach=$(uname -m) \
+      && case $mach in aarch64) arch="aarch64-linux-gnu"; ;; x86_64) arch="x86_64-linux-gnu"; ;;  *) echo "ERROR: Machine type $mach not supported."; ;; esac \
+      && cd /home/gymnasium \
+      && tar xvzf gymnasium*$arch.tar.gz \
+      && echo $(ls -1 /home/gymnasium) \
+      && cp gymnasium-*/bin/* /usr/local/bin \
+      && rm -rf gymnasium*
+
+USER gymnasium
+
+VOLUME ["/home/gymnasium"]
+
+COPY gymnasium/contrib/containers/deploy/docker-entrypoint.sh /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+EXPOSE 17217 9999 27217 27218
+
+WORKDIR /home/gymnasium

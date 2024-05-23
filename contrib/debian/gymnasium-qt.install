@@ -1,0 +1,6 @@
+usr/local/bin/gymnasium-qt usr/bin
+share/pixmaps/gymnasium32.xpm usr/share/pixmaps
+share/pixmaps/gymnasium16.xpm usr/share/pixmaps
+share/pixmaps/gymnasium128.png usr/share/pixmaps
+debian/gymnasium-qt.desktop usr/share/applications
+debian/gymnasium-qt.protocol usr/share/kde4/services/

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=Gymnasium Core
+Comment=Gymnasium P2P Cryptocurrency
+Comment[de]=Verbinde mit dem Gymnasium peer-to-peer Netzwerk
+Comment[fr]=Gymnasium, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Gymnasium, eşten eşe kriptografik sanal para birimi
+Exec=gymnasium-qt %u
+Terminal=false
+Type=Application
+Icon=gymnasium128
+MimeType=x-scheme-handler/gymnasium;
+Categories=Office;Finance;P2P;Network;Qt;
+StartupWMClass=Gymnasium-qt

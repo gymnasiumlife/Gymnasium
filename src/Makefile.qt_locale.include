@@ -1,0 +1,22 @@
+QT_TS = \
+  qt/locale/gymnasium_ar.ts \
+  qt/locale/gymnasium_bg.ts \
+  qt/locale/gymnasium_de.ts \
+  qt/locale/gymnasium_en.ts \
+  qt/locale/gymnasium_es.ts \
+  qt/locale/gymnasium_fi.ts \
+  qt/locale/gymnasium_fr.ts \
+  qt/locale/gymnasium_it.ts \
+  qt/locale/gymnasium_ja.ts \
+  qt/locale/gymnasium_ko.ts \
+  qt/locale/gymnasium_nl.ts \
+  qt/locale/gymnasium_pl.ts \
+  qt/locale/gymnasium_pt.ts \
+  qt/locale/gymnasium_ro.ts \
+  qt/locale/gymnasium_ru.ts \
+  qt/locale/gymnasium_sk.ts \
+  qt/locale/gymnasium_th.ts \
+  qt/locale/gymnasium_tr.ts \
+  qt/locale/gymnasium_vi.ts \
+  qt/locale/gymnasium_zh_CN.ts \
+  qt/locale/gymnasium_zh_TW.ts

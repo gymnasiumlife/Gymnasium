@@ -1,0 +1,33 @@
+# /etc/conf.d/gymnasiumd: config file for /etc/init.d/gymnasiumd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/gymnasium/gymnasium.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/gymnasiumd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/gymnasiumd.pid"
+
+# Where to write gymnasiumd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/gymnasiumd"
+
+# User and group to own gymnasiumd process
+#BITCOIND_USER="gymnasium"
+#BITCOIND_GROUP="gymnasium"
+
+# Path to gymnasiumd executable
+#BITCOIND_BIN="/usr/bin/gymnasiumd"
+
+# Nice value to run gymnasiumd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#BITCOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for gymnasiumd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+BITCOIND_SIGTERM_TIMEOUT=60
