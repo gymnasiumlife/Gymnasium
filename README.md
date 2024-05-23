@@ -41,13 +41,5 @@ We've meticulously changed many off lines before sharing, ensuring robustness an
 
 As for management fees and superblock rewards, they serve essential purposes in advancing our vision. Superblock rewards will initially facilitate exchange listings and subsequently fund blockchain projects—a cornerstone of our ecosystem development. Management fees are allocated to various operational needs, ensuring continuous progress and value enhancement.
 
-Interested in participating in our masternode sale?
-We're offering collateral for the first 20 masternodes exclusively to our Discord community.
-Each node is priced at 500 USDT, ensuring decentralization and network security.
-
-As for our mainnet launch, meticulous testing precedes any commitment to a specific date.
-Once we're confident in our readiness, we'll announce the launch date across all our communication channels.
-Rest assured, even though we're utilizing existing code, we'll implement any necessary fixes and update the genesis block prior to launch.
-
 Thank you for your interest and support.
 We look forward to welcoming you into the Gymnasium Life community as we embark on this exciting journey together.
