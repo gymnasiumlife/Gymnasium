@@ -196,10 +196,12 @@ public:
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
         consensus.nPowTargetTimespan = 5 * 60;
         consensus.nPowTargetSpacing = 1 * 60;
+        consensus.lwmaAveragingWindow = 70;
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 1;
         consensus.nPowDGWHeight = 1;
+        consensus.nPowLWMAHeight = 46500;
         consensus.nRuleChangeActivationThreshold = 5; // 95% of 5
         consensus.nMinerConfirmationWindow = 5; // nPowTargetTimespan / nPowTargetSpacing
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
