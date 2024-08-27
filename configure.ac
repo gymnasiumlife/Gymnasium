@@ -1,13 +1,13 @@
 AC_PREREQ([2.69])
-define(_CLIENT_VERSION_MAJOR, 20)
-define(_CLIENT_VERSION_MINOR, 1)
-define(_CLIENT_VERSION_BUILD, 1)
+define(_CLIENT_VERSION_MAJOR, 1)
+define(_CLIENT_VERSION_MINOR, 3)
+define(_CLIENT_VERSION_BUILD, 0)
 define(_CLIENT_VERSION_RC, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2024)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
 define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Gymnasium]])
-AC_INIT([Gymnasium],m4_join([.], _CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MINOR, _CLIENT_VERSION_BUILD)m4_if(_CLIENT_VERSION_RC, [0], [], [rc]_CLIENT_VERSION_RC),[https://github.com/gymnasiumlife/issues],[gymnasium],[https://gymnasium.life/])
+AC_INIT([Gymnasium],m4_join([.], _CLIENT_VERSION_MAJOR, _CLIENT_VERSION_MINOR, _CLIENT_VERSION_BUILD)m4_if(_CLIENT_VERSION_RC, [0], [], [rc]_CLIENT_VERSION_RC),[https://github.com/gymnasiumlife/Gymnasium/Gymnasium/issues],[Gymnasium],[https://gymnasium.life/])
 AC_CONFIG_SRCDIR([src/validation.cpp])
 AC_CONFIG_HEADERS([src/config/bitcoin-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
@@ -28,9 +28,9 @@ fi
 
 AC_CANONICAL_HOST
 
-AH_TOP([#ifndef GSM_CONFIG_H])
-AH_TOP([#define GSM_CONFIG_H])
-AH_BOTTOM([#endif //GSM_CONFIG_H])
+AH_TOP([#ifndef BTFC_CONFIG_H])
+AH_TOP([#define BTFC_CONFIG_H])
+AH_BOTTOM([#endif //BTFC_CONFIG_H])
 
 dnl faketime breaks configure and is only needed for make. Disable it here.
 unset FAKETIME
