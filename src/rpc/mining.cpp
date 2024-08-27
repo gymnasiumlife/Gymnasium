@@ -471,7 +471,7 @@ static UniValue prioritisetransaction(const JSONRPCRequest& request)
         "Accepts the transaction into mined blocks at a higher (or lower) priority\n",
         {
             {"txid", RPCArg::Type::STR_HEX, RPCArg::Optional::NO, "The transaction id."},
-            {"fee_delta", RPCArg::Type::NUM, RPCArg::Optional::NO, "The fee value (in GymnasiumS) to add (or subtract, if negative).\n"
+            {"fee_delta", RPCArg::Type::NUM, RPCArg::Optional::NO, "The fee value (in BTF) to add (or subtract, if negative).\n"
     "                  Note, that this value is not a fee rate. It is a value to modify absolute fee of the TX.\n"
     "                  The fee is not actually paid, only the algorithm for selecting transactions into a block\n"
     "                  considers the transaction as it would have paid a higher (or lower) fee."},
@@ -950,6 +950,23 @@ static UniValue getblocktemplate(const JSONRPCRequest& request)
     result.pushKV("superblock", superblockObjArray);
     result.pushKV("superblocks_started", pindexPrev->nHeight + 1 > consensusParams.nSuperblockStartBlock);
     result.pushKV("superblocks_enabled", AreSuperblocksEnabled(*sporkManager));
+
+    {
+        CScript devPayoutScript = GetScriptForDestination(DecodeDestination(consensusParams.DevelopmentFundAddress));
+        CAmount devPayoutValue;
+
+        CBlockIndex* pindex = ::ChainActive().Tip();
+        int nHeight = pindexPrev->nHeight + 1;
+
+        if (nHeight > consensusParams.DevRewardStartHeight)
+            devPayoutValue = (GetBlockSubsidy(pindex, consensusParams, nHeight) * consensusParams.DevelopementFundShare) / 100;
+
+        UniValue obj(UniValue::VOBJ);
+        obj.pushKV("payee", (consensusParams.DevelopmentFundAddress).c_str());
+        obj.pushKV("script", HexStr(devPayoutScript));
+        obj.pushKV("amount", devPayoutValue);
+        result.pushKV("devfee", obj);
+    }
 
     result.pushKV("coinbase_payload", HexStr(pblock->vtx[0]->vExtraPayload));
 
